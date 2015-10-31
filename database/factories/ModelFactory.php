@@ -11,11 +11,19 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Avaliacao\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(Avaliacao\Entities\Artist::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'home_country' => $faker->country,
+        'biography' => $faker->text
     ];
 });
