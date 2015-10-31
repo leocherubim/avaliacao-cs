@@ -13,5 +13,12 @@ class Album extends Model
      * @var array
      */
     protected $fillable = ['title', 'genre', 'release_date', 'price', 'artist_id'];
-    
+
+    /*
+     * Relacionamento hasOne com model Artist
+     */
+    public function artist()
+    {
+    	return $this->hasOne(Artist::class);
+    }
 }
