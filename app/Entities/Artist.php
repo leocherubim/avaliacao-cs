@@ -18,4 +18,12 @@ class Artist extends Model
     	'biography'
     ];
 
+    /*
+     * Relacionamento hasMany com model Album
+     */
+    public function albums()
+    {
+    	return $this->hasMany(Album::class);
+    }
+
 }

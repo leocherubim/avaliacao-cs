@@ -27,3 +27,21 @@ $factory->define(Avaliacao\Entities\Artist::class, function (Faker\Generator $fa
         'biography' => $faker->text
     ];
 });
+
+$factory->define(Avaliacao\Entities\Album::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->company,
+        'genre' => $faker->lastName,
+        'release_date' => $faker->date,
+        'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 99)
+    ];
+});
+
+$factory->define(Avaliacao\Entities\Music::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->company,
+        'duration' => $faker->randomDigit,
+        'composer' => $faker->name,
+        'letter' => $faker->text
+    ];
+});

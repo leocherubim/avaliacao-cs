@@ -21,10 +21,18 @@ class Album extends Model
     ];
 
     /*
-     * Relacionamento hasOne com model Artist
+     * Relacionamento belongsTo com model Artist
      */
     public function artist()
     {
     	return $this->belongsTo(Artist::class);
+    }
+
+    /*
+     * Relacionamento hasMany com model Music
+     */
+    public function musics()
+    {
+        return $this->hasMany(Music::class);
     }
 }
