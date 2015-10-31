@@ -12,14 +12,20 @@ class Music extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'duration', 'composer', 'letter', 'album_id'];
+    protected $fillable = [
+    	'title', 
+    	'duration', 
+    	'composer', 
+    	'letter', 
+    	'album_id'
+    ];
 
     /*
      * Relacionamento hasOne com model Album
      */
     public function album()
     {
-    	return this->hasOne(Album::class);
+    	return $this->belongsTo(Album::class);
     }
 
 }
