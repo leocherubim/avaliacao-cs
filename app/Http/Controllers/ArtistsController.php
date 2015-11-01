@@ -41,7 +41,7 @@ class ArtistsController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->repository->create($repository->all());
+        return $this->repository->create($request->all());
     }
 
     /**
@@ -52,7 +52,7 @@ class ArtistsController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->repository->find($id);
     }
 
     /**

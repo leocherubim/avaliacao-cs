@@ -11,6 +11,11 @@
 |
 */
 
+/**
+ * Validacao da variavel id da rota
+ */
+Route::pattern('id', '[0-9]+');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,6 +26,8 @@ Route::get('/', function () {
 Route::group(['prefix'=>'artist'], function() {
 
 	Route::get('', 'ArtistsController@index');
+	Route::get('{id}', 'ArtistsController@show');
+	Route::post('', 'ArtistsController@store');
 
 });
 
