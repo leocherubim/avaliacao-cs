@@ -28,6 +28,8 @@ Route::group(['prefix'=>'artist'], function() {
 	Route::get('', 'ArtistsController@index');
 	Route::get('{id}', 'ArtistsController@show');
 	Route::post('', 'ArtistsController@store');
+	Route::put('{id}', 'ArtistsController@update');
+	Route::delete('{id}', 'ArtistsController@destroy');
 
 });
 

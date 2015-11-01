@@ -9,6 +9,7 @@ use Avaliacao\Http\Controllers\Controller;
 use Avaliacao\Repositories\ArtistRepository;
 use Avaliacao\Entities\Artist;
 use Avaliacao\Repositories\ArtistRepositoryEloquent;
+use Avaliacao\Service\ArtistService;
 
 class ArtistsController extends Controller
 {
@@ -18,9 +19,15 @@ class ArtistsController extends Controller
      */
     private $repository;
 
-    public function __construct(ArtistRepository $repository)
+    /**
+     * @var ArtistService
+     */
+    private $service;
+
+    public function __construct(ArtistRepository $repository, ArtistService $service)
     {
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     /**
@@ -41,7 +48,7 @@ class ArtistsController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->repository->create($request->all());
+        return $this->service->create($request->all());
     }
 
     /**
@@ -56,17 +63,6 @@ class ArtistsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -75,7 +71,7 @@ class ArtistsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->service->update($request->all(), $id);
     }
 
     /**
@@ -86,6 +82,6 @@ class ArtistsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->repository->delete($id);
     }
 }

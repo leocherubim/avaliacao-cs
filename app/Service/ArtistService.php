@@ -4,6 +4,7 @@ namespace Avaliacao\Service;
 
 use Avaliacao\Repositories\ArtistRepository;
 use Avaliacao\Validators\ArtistValidator;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ArtistService
 {
@@ -16,7 +17,7 @@ class ArtistService
 	/**
 	 * @var ArtistValidator
 	 */
-	private $repository;
+	private $validator;
 
 	public function __construct(ArtistRepository $repository, ArtistValidator $validator)
 	{

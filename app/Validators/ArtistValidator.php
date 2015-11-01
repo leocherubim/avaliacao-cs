@@ -10,7 +10,7 @@ class ArtistValidator extends LaravelValidator
 	protected $rules = [
 		'name' => 'required|max:255',
 		'home_country' => 'required|max:100',
-		'biography' => 'required|text'
+		'biography' => 'required|max:500'
 	];
 
 }
