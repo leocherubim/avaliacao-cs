@@ -15,4 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('artist', 'ArtistsController@index');
+/*
+ * Grupo de rotas para o CRUD de Artist
+ */
+Route::group(['prefix'=>'artist'], function() {
+
+	Route::get('', 'ArtistsController@index');
+
+});
+
+/*
+ * Grupo de rotas para o CRUD de Album
+ */
+Route::group(['prefix'=>'album'], function() {
+
+	Route::get('', 'AlbumsController@index');
+
+});
+
+/*
+ * Grupo de rotas para o CRUD de Music
+ */
+Route::group(['prefix'=>'music'], function() {
+
+	Route::get('', 'MusicsController@index');
+
+});
