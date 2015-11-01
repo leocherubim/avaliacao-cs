@@ -23,6 +23,22 @@ class AvaliacaoRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        
+        /*
+         * Repository Artist
+         */
+        $this->app->bind(
+            \Avaliacao\Repositories\ArtistRepository::class,
+            \Avaliacao\Repositories\ArtistRepositoryEloquent::class
+        );
+
+        /*
+         * Repository Album
+         */
+        $this->app->bind(
+            \Avaliacao\Repositories\AlbumRepository::class,
+            \Avaliacao\Repositories\AlbumRepositoryEloquent::class
+        );
+        
     }
 }

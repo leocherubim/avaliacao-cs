@@ -5,10 +5,10 @@ namespace Avaliacao\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ArtistRepository
+ * Interface MusicRepository
  * @package namespace Avaliacao\Repositories;
  */
-interface ArtistRepository extends RepositoryInterface
+interface MusicRepository extends RepositoryInterface
 {
     //
 }

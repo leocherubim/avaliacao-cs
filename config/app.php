@@ -136,6 +136,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        /*
+         * Provider da biblioteca Prettus para utilizacao do padrao
+         * de projetos Repository.
+         */
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -144,6 +149,7 @@ return [
         Avaliacao\Providers\AuthServiceProvider::class,
         Avaliacao\Providers\EventServiceProvider::class,
         Avaliacao\Providers\RouteServiceProvider::class,
+        Avaliacao\Providers\AvaliacaoRepositoryProvider::class,
 
     ],
 

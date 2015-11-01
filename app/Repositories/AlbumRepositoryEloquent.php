@@ -4,14 +4,14 @@ namespace Avaliacao\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Avaliacao\Repositories\ArtistRepository;
-use Avaliacao\Entities\Artist;
+use Avaliacao\Repositories\AlbumRepository;
+use Avaliacao\Entities\Album;
 
 /**
- * Class ArtistRepositoryEloquent
+ * Class AlbumRepositoryEloquent
  * @package namespace Avaliacao\Repositories;
  */
-class ArtistRepositoryEloquent extends BaseRepository implements ArtistRepository
+class AlbumRepositoryEloquent extends BaseRepository implements AlbumRepository
 {
     /**
      * Specify Model class name
@@ -20,7 +20,7 @@ class ArtistRepositoryEloquent extends BaseRepository implements ArtistRepositor
      */
     public function model()
     {
-        return Artist::class;
+        return Album::class;
     }
 
     /**
