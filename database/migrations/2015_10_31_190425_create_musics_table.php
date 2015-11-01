@@ -19,7 +19,10 @@ class CreateMusicsTable extends Migration
             $table->string('composer');
             $table->string('letter');
             $table->integer('album_id')->unsigned();
-            $table->foreign('album_id')->references('id')->on('albums');
+            $table->foreign('album_id')
+                  ->references('id')
+                  ->on('albums')
+                  ->onDelete('cascade');;
             $table->timestamps();
         });
     }

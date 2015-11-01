@@ -19,7 +19,10 @@ class CreateAlbumsTable extends Migration
             $table->date('release_date');
             $table->double('price', 4, 2);
             $table->integer('artist_id')->unsigned();
-            $table->foreign('artist_id')->references('id')->on('artists');
+            $table->foreign('artist_id')
+                  ->references('id')
+                  ->on('artists')
+                  ->onDelete('cascade');;
             $table->timestamps();
         });
     }
