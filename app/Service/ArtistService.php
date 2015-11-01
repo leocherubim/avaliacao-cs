@@ -42,6 +42,18 @@ class ArtistService
 		}
 	}
 
+	public function show($id)
+	{
+		try {
+			return $this->repository->find($id);
+		} catch(ModelNotFoundException $e) {
+			return [
+				'error' => true,
+				'message' => 'Artisa não encontrado'
+			];
+		}
+	}
+
 	public function update(array $data, $id)
 	{
 
@@ -67,9 +79,10 @@ class ArtistService
 	public function destroy($id)
     {
     	try {
+    		$artist = $this->repository->find($id);
     		$this->repository->delete($id);
     		return [
-    			'message' => 'Artista removido com sucesso'
+    			'message' => $artist->name . ' removido com sucesso'
     		];
     	} catch(ModelNotFoundException $e) {
     		return [
