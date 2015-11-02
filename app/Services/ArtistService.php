@@ -26,7 +26,7 @@ class ArtistService
 		$this->validator = $validator;
 	}
 
-	public function create(array $data)
+	public function store(array $data)
 	{
 		try {
 

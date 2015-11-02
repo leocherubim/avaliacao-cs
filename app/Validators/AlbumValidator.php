@@ -11,8 +11,8 @@ class AlbumValidator extends LaravelValidator
 		'title' => 'required|max:255',
 		'genre' => 'required|max:255',
 		'release_date' => 'required|date',
-		'price' => 'required|numeric'
-		'artist_id' => 'required|integer'
+		'price' => 'required|numeric',
+		'artist_id' => 'required|integer|exists:artists,id'
 	];
 
 }

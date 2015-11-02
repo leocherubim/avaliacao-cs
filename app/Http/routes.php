@@ -12,7 +12,7 @@
 */
 
 /**
- * Validacao da variavel id da rota
+ * Validacao da variavel id da rota permitindo apenas numeros inteiros
  */
 Route::pattern('id', '[0-9]+');
 
@@ -26,8 +26,8 @@ Route::get('/', function () {
 Route::group(['prefix'=>'artist'], function() {
 
 	Route::get('', 'ArtistsController@index');
-	Route::get('{id}', 'ArtistsController@show');
 	Route::post('', 'ArtistsController@store');
+	Route::get('{id}', 'ArtistsController@show');
 	Route::put('{id}', 'ArtistsController@update');
 	Route::delete('{id}', 'ArtistsController@destroy');
 
@@ -39,6 +39,10 @@ Route::group(['prefix'=>'artist'], function() {
 Route::group(['prefix'=>'album'], function() {
 
 	Route::get('', 'AlbumsController@index');
+	Route::post('', 'AlbumsController@store');
+	Route::get('{id}', 'AlbumsController@show');
+	Route::put('{id}', 'AlbumsController@update');
+	Route::delete('{id}', 'AlbumsController@destroy');
 
 });
 

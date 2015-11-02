@@ -48,7 +48,7 @@ class ArtistsController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->service->create($request->all());
+        return $this->service->store($request->all());
     }
 
     /**
