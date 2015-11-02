@@ -6,6 +6,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Avaliacao\Repositories\AlbumRepository;
 use Avaliacao\Entities\Album;
+use Avaliacao\Presenters\AlbumPresenter;
 
 /**
  * Class AlbumRepositoryEloquent
@@ -29,5 +30,13 @@ class AlbumRepositoryEloquent extends BaseRepository implements AlbumRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    /*
+     * Presenter para ser serializado
+     */
+    public function presenter()
+    {
+        return AlbumPresenter::class;
     }
 }

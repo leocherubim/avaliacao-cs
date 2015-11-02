@@ -21,12 +21,12 @@ class AlbumTransformer extends TransformerAbstract
     public function transform(Album $model)
     {
         return [
-            'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'idAlbum' => (int) $model->id,
+            'titulo' => $model->title,
+            'genero' => $model->genre,
+            'dataLancamento' => $model->release_date,
+            'preco' => $model->price,
+            'artista' => $model->artist
         ];
     }
 }
