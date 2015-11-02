@@ -6,9 +6,28 @@ use Illuminate\Http\Request;
 
 use Avaliacao\Http\Requests;
 use Avaliacao\Http\Controllers\Controller;
+use Avaliacao\Repositories\AlbumRepository;
+use Avaliacao\Services\AlbumService;
 
 class AlbumsController extends Controller
 {
+
+    /**
+     * @var AlbumRepository
+     */
+    private $repository;
+
+    /**
+     * @var AlbumService
+     */
+    private $service;
+
+    public function __construct(AlbumRepository $repository, AlbumService $service)
+    {
+        $this->repository = $repository;
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +35,7 @@ class AlbumsController extends Controller
      */
     public function index()
     {
-        //
+        return $this->repository->all();
     }
 
     /**

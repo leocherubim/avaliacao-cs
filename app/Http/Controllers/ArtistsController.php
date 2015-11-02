@@ -9,7 +9,7 @@ use Avaliacao\Http\Controllers\Controller;
 use Avaliacao\Repositories\ArtistRepository;
 use Avaliacao\Entities\Artist;
 use Avaliacao\Repositories\ArtistRepositoryEloquent;
-use Avaliacao\Service\ArtistService;
+use Avaliacao\Services\ArtistService;
 
 class ArtistsController extends Controller
 {

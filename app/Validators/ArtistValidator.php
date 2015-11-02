@@ -13,8 +13,4 @@ class ArtistValidator extends LaravelValidator
 		'biography' => 'required|max:500'
 	];
 
-	protected $messages = [
-	    'email.required' => 'We need to know your e-mail address!',
-	];
-
 }
