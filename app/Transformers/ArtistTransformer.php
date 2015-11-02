@@ -21,12 +21,10 @@ class ArtistTransformer extends TransformerAbstract
     public function transform(Artist $model)
     {
         return [
-            'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'idArtista' => (int) $model->id,
+            'nome' => $model->name,
+            'paisOrigem' => $model->home_country,
+            'biografia' => $model->biography
         ];
     }
 }
