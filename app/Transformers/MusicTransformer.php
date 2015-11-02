@@ -13,6 +13,15 @@ class MusicTransformer extends TransformerAbstract
 {
 
     /**
+     * List of resources to automatically include
+     *
+     * @var array
+     */
+    protected $defaultIncludes = [
+        'album'
+    ];
+
+    /**
      * Transform the \Music entity
      * @param \Music $model
      *
@@ -21,12 +30,22 @@ class MusicTransformer extends TransformerAbstract
     public function transform(Music $model)
     {
         return [
-            'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'idMusica' => (int) $model->id,
+            'titulo' => $model->title,
+            'duracao' => $model->duration,
+            'compositor' => $model->composer,
+            'letra' => $model->letter
         ];
+    }
+
+    /**
+     * Include Album
+     *
+     * @param Music $model
+     * @return \League\Fractal\Resource\Item
+     */
+    public function includeAlbum(Music $model)
+    {
+        return $this->item($model->album, new AlbumTransformer());
     }
 }

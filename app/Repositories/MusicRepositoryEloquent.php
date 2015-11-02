@@ -6,6 +6,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Avaliacao\Repositories\MusicRepository;
 use Avaliacao\Entities\Music;
+use Avaliacao\Presenters\MusicPresenter;
 
 /**
  * Class MusicRepositoryEloquent
@@ -29,5 +30,13 @@ class MusicRepositoryEloquent extends BaseRepository implements MusicRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    /*
+     * Presenter para ser serializado
+     */
+    public function presenter()
+    {
+        return MusicPresenter::class;
     }
 }

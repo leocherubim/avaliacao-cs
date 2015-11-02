@@ -13,6 +13,15 @@ class AlbumTransformer extends TransformerAbstract
 {
 
     /**
+     * List of resources to automatically include
+     *
+     * @var array
+     */
+    protected $defaultIncludes = [
+        'artist'
+    ];
+
+    /**
      * Transform the \Album entity
      * @param \Album $model
      *
@@ -25,8 +34,19 @@ class AlbumTransformer extends TransformerAbstract
             'titulo' => $model->title,
             'genero' => $model->genre,
             'dataLancamento' => $model->release_date,
-            'preco' => $model->price,
-            'artista' => $model->artist
+            'preco' => $model->price
         ];
     }
+
+    /**
+     * Include Artist
+     *
+     * @param Album $model
+     * @return \League\Fractal\Resource\Item
+     */
+    public function includeArtist(Album $model)
+    {
+        return $this->item($model->artist, new ArtistTransformer());
+    }
+
 }
