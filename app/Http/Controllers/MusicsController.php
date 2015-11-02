@@ -6,9 +6,28 @@ use Illuminate\Http\Request;
 
 use Avaliacao\Http\Requests;
 use Avaliacao\Http\Controllers\Controller;
+use Avaliacao\Repositories\MusicRepository;
+use Avaliacao\Services\MusicService;
 
 class MusicsController extends Controller
 {
+
+    /**
+     * @var MusicRepository
+     */
+    private $repository;
+
+    /**
+     * @var MusicService
+     */
+    private $service;
+
+    public function __construct(MusicRepository $repository, MusicService $service)
+    {
+        $this->repository = $repository;
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,17 +35,7 @@ class MusicsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return $this->repository->all();
     }
 
     /**
@@ -37,7 +46,7 @@ class MusicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->service->store($request->all());
     }
 
     /**
@@ -48,18 +57,7 @@ class MusicsController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return $this->service->show($id);
     }
 
     /**
@@ -71,7 +69,7 @@ class MusicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->service->update($request->all(), $id);
     }
 
     /**
@@ -82,6 +80,6 @@ class MusicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->service->destroy($id);
     }
 }

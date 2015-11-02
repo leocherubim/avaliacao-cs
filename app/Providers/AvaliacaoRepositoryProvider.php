@@ -39,6 +39,14 @@ class AvaliacaoRepositoryProvider extends ServiceProvider
             \Avaliacao\Repositories\AlbumRepository::class,
             \Avaliacao\Repositories\AlbumRepositoryEloquent::class
         );
+
+        /*
+         * Repository Music
+         */
+        $this->app->bind(
+            \Avaliacao\Repositories\MusicRepository::class,
+            \Avaliacao\Repositories\MusicRepositoryEloquent::class
+        );
         
     }
 }

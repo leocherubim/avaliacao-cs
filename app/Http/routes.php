@@ -52,5 +52,9 @@ Route::group(['prefix'=>'album'], function() {
 Route::group(['prefix'=>'music'], function() {
 
 	Route::get('', 'MusicsController@index');
+	Route::post('', 'MusicsController@store');
+	Route::get('{id}', 'MusicsController@show');
+	Route::put('{id}', 'MusicsController@update');
+	Route::delete('{id}', 'MusicsController@destroy');
 
 });
