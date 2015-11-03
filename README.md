@@ -44,6 +44,12 @@ No diretório **app/Repositories** estão os repositories e suas interfaces refe
 
 E nos diretórios **app/Transformers** e **app/Presenters** estão as configuração para customizar a serialização das APIs
 
+## Funcionamento das APIs
+Segue abaixo os campos necessãrios para o consulmo de cada API:
 
-
-
+- Artist:
+'name','home_country','biography';
+- Album:
+'title','genre','release_date','price','artist_id';
+- Music:
+'title','duration','composer','letter','album_id';
